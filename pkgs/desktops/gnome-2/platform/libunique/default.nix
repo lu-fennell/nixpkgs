@@ -11,4 +11,7 @@ stdenv.mkDerivation rec {
 
   buildNativeInputs = [ pkgconfig ];
   buildInputs = [ gtk ];
+
+  # patch taken from arch's libunique 1.1.6-5 PKGBUILD
+  patches = [ ./remove_G_CONST_RETURN.patch ];
 }
