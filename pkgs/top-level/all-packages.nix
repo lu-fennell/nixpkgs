@@ -6951,6 +6951,9 @@ let
 
   fossil = callPackage ../applications/version-management/fossil { };
 
+  gmpc = callPackage ../applications/audio/gmpc { };
+  libmpd = callPackage ../applications/audio/gmpc/libmpd.nix { };
+
   goldendict = callPackage ../applications/misc/goldendict { };
 
   grass = import ../applications/misc/grass {
