@@ -8850,6 +8850,11 @@ let
     stateDir = config.nix.stateDir or "/nix/var";
   };
 
+  nixProglang = callPackage ../tools/package-management/nix/unstable.nix {
+    storeDir = "/home/proglang/nix/store";
+    stateDir = "/home/proglang/nix/var";
+  };
+
   nixCustomFun = src: preConfigure: enableScripts: configureFlags:
     import ../tools/package-management/nix/custom.nix {
       inherit fetchurl stdenv perl curl bzip2 openssl src preConfigure automake
