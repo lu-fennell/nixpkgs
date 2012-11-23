@@ -3878,7 +3878,7 @@ let
 
   gdk_pixbuf = callPackage ../development/libraries/gdk-pixbuf/2.26.x.nix { };
 
-  gtk2 = callPackage ../development/libraries/gtk+/2.24.x.nix { };
+  gtk2 = callPackage ../development/libraries/gtk+/2.24.x.nix { cupsSupport = false; };
 
   gtk = pkgs.gtk2;
 
@@ -8804,8 +8804,9 @@ let
 
   ghostscript = callPackage ../misc/ghostscript {
     x11Support = false;
-    cupsSupport = config.ghostscript.cups or true;
+    # cupsSupport = config.ghostscript.cups or true;
     gnuFork = config.ghostscript.gnu or false;
+    cupsSupport = false;
   };
 
   ghostscriptX = appendToName "with-X" (ghostscript.override {
