@@ -1,4 +1,4 @@
-{ stdenv, fetchurl, pkgconfig, perl, glib }:
+{ stdenv, fetchurl, pkgconfig, perl, glib, gettext }:
 
 stdenv.mkDerivation rec {
   name = "atk-2.6.0";
@@ -11,6 +11,9 @@ stdenv.mkDerivation rec {
   buildNativeInputs = [ pkgconfig perl ];
 
   propagatedBuildInputs = [ glib ];
+  buildInputs = [ gettext ];
+
+  configureFlags = "--disable-glibtest";
 
   postInstall = "rm -rf $out/share/gtk-doc";
 

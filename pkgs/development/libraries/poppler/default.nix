@@ -1,6 +1,7 @@
 { fetchurl, stdenv, cairo, freetype, fontconfig, zlib
 , libjpeg, pixman, curl, libpthreadstubs, libXau, libXdmcp, openjpeg
 , libxml2, pkgconfig, cmake, lcms
+, gettext
 , gtkSupport ? false, glib ? null, gtk ? null
 , qt4Support ? false, qt4 ? null
 }:
@@ -21,6 +22,8 @@ stdenv.mkDerivation rec {
     ++ stdenv.lib.optional qt4Support qt4;
 
   buildNativeInputs = [ pkgconfig cmake ];
+
+  buildInputs = [ gettext ];
 
   cmakeFlags = "-DENABLE_XPDF_HEADERS=ON -DENABLE_LIBCURL=ON -DENABLE_ZLIB=ON";
 

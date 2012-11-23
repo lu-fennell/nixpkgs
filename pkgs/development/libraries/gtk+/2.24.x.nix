@@ -1,5 +1,5 @@
 { stdenv, fetchurl, pkgconfig, glib, atk, pango, cairo, perl, xlibs
-, gdk_pixbuf, xz
+, gdk_pixbuf, gettext, xz
 , xineramaSupport ? true
 , cupsSupport ? true, cups ? null
 }:
@@ -18,6 +18,8 @@ stdenv.mkDerivation rec {
   enableParallelBuilding = true;
 
   buildNativeInputs = [ perl pkgconfig ];
+ 
+  buildInputs = [ gettext ];
 
   propagatedBuildInputs =
     [ xlibs.xlibs glib atk pango gdk_pixbuf cairo
@@ -26,7 +28,7 @@ stdenv.mkDerivation rec {
     ++ stdenv.lib.optional xineramaSupport xlibs.libXinerama
     ++ stdenv.lib.optionals cupsSupport [ cups ];
 
-  configureFlags = "--with-xinput=yes";
+  configureFlags = "--with-xinput=yes --disable-glibtest";
 
   postInstall = "rm -rf $out/share/gtk-doc";
 
