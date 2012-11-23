@@ -17,6 +17,11 @@ stdenv.mkDerivation rec {
 
   doCheck = true;
 
+  preConfigure = ''
+    export DYLD_LIBRARY_PATH=${ghostscript}/lib
+  '';
+
+
   meta = {
     homepage = http://libspectre.freedesktop.org/;
     description = "libspectre, a PostScript rendering library";

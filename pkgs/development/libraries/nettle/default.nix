@@ -11,7 +11,9 @@ stdenv.mkDerivation (rec {
   buildInputs = [ gnum4 ];
   propagatedBuildInputs = [ gmp ];
 
-  doCheck = (stdenv.system != "i686-cygwin");
+  # TODO: set DYLD_LIRABRY_PATH=$(pwd)/.lib for make check (or patch the Makefile)
+  # checkFlags = stdenv.lib.optional stdenv.isDarwin "DYLD_LIBRARY_PATH=.lib";
+  doCheck = (stdenv.system != "i686-cygwin" && ! stdenv.isDarwin);
 
   enableParallelBuilding = true;
 
