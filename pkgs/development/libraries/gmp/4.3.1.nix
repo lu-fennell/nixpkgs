@@ -10,7 +10,11 @@ stdenv.mkDerivation rec {
 
   buildInputs = [m4];
 
-  preConfigure = "ln -sf configfsf.guess config.guess";
+  # TODO: also check if 4.3.2 works now
+  # TODO: this should be downloaded... but the url is too strange for nix
+  configGuess = ./config.guess;
+
+  preConfigure = "ln -sf ${configGuess} config.guess";
 
   configureFlags = if cxx then "--enable-cxx" else "--disable-cxx";
 

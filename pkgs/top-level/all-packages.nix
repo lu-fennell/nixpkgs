@@ -3765,7 +3765,7 @@ let
 
   # The GHC bootstrap binaries link against libgmp.so.3, which is in GMP 4.x.
   gmp4 =
-    if stdenv.system == "i686-darwin" then
+    if stdenv.isDarwin then
       # GMP 4.3.2 is broken on Darwin, so use 4.3.1.
       callPackage ../development/libraries/gmp/4.3.1.nix { }
     else
