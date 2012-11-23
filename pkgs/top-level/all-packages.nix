@@ -6931,8 +6931,8 @@ let
   # `share/icons/hicolor/icon-theme.cache'.  Arbitrarily give this one a
   # higher priority.
   evince = hiPrio (callPackage ../applications/misc/evince {
-    inherit (gnome) gnomedocutils gnomeicontheme libgnome
-      libgnomeui libglade scrollkeeper;
+    inherit (gnome) gnomedocutils gnomeicontheme
+      libglade scrollkeeper;
   });
 
   evolution_data_server = newScope (gnome) ../servers/evolution-data-server { };

@@ -1,6 +1,6 @@
 { fetchurl, stdenv, perl, perlXMLParser, gettext, intltool
 , pkgconfig, glib, gtk, gnomedocutils, gnomeicontheme
-, libgnome, libgnomeui, scrollkeeper, libxslt
+, scrollkeeper, libxslt
 , libglade, libgnome_keyring, dbus, dbus_glib
 , poppler, libspectre, djvulibre, shared_mime_info
 , makeWrapper, which, ghostscript
@@ -17,14 +17,14 @@ stdenv.mkDerivation rec {
 
   buildInputs = [
     perl perlXMLParser gettext intltool pkgconfig glib gtk
-    gnomedocutils gnomeicontheme libgnome libgnomeui libglade
+    gnomedocutils gnomeicontheme libglade
     scrollkeeper libgnome_keyring
     libxslt  # for `xsltproc'
     dbus dbus_glib poppler libspectre djvulibre makeWrapper which
     ghostscript
   ];
 
-  configureFlags = "--with-libgnome --enable-dbus --enable-pixbuf "
+  configureFlags = "--disable-schemas-compile --disable-schemas-install --enable-dbus --enable-pixbuf --without-gconf"
 
     # Do not use nautilus
     + " --disable-nautilus "
