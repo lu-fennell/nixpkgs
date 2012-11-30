@@ -2,8 +2,8 @@
 
 cabal.mkDerivation (self: {
   pname = "classy-prelude-conduit";
-  version = "0.4.0";
-  sha256 = "1abx3nrnd39l0319qwj11gsfq3ji9babrs6h60s8fp2cfkvqzalz";
+  version = "0.4.1";
+  sha256 = "0llir0xnnyhgxifay019x64jw7mnn9p1sqs1xwm14gjcqr2nqqg8";
   buildDepends = [ classyPrelude conduit xmlConduit ];
   meta = {
     homepage = "https://github.com/snoyberg/classy-prelude";

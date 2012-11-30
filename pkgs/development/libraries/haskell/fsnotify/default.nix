@@ -2,12 +2,9 @@
 
 cabal.mkDerivation (self: {
   pname = "fsnotify";
-  version = "0.0.2";
-  sha256 = "14pvyky3wg1k1lrv41rymi4mihvdpkx8vfv43wa0z6g4a6456ayz";
+  version = "0.0.4";
+  sha256 = "0s71zxj48jimzhl7wz9j22g9c09z64g61nfmpy4mlrhpkzn1f8sz";
   buildDepends = [ hinotify systemFileio systemFilepath text time ];
-  patchPhase = ''
-    sed -i -e 's@hinotify == 0.3.2@hinotify >= 0.3.2@g' fsnotify.cabal
-  '';
   meta = {
     description = "Cross platform library for file creation, modification, and deletion notification";
     license = self.stdenv.lib.licenses.bsd3;

@@ -7,18 +7,19 @@
 , MissingH, monadControl, mtl, network, networkInfo
 , networkMulticast, pcreLight, QuickCheck, SHA, stm, text, time
 , transformers, transformersBase, utf8String, wai, waiLogger, warp
-, yesod, yesodDefault, yesodStatic, testpack
+, yesod, yesodDefault, yesodStatic, testpack, SafeSemaphore
+, networkPprotocolXmpp, async, dns, DAV
 }:
 
 let
-  version = "3.20121017";
+  version = "3.20121126";
 in
 stdenv.mkDerivation {
   name = "git-annex-${version}";
 
   src = fetchurl {
-    url = "http://git.kitenet.net/?p=git-annex.git;a=snapshot;sf=tgz;h=refs/tags/${version}";
-    sha256 = "1949efb22cd3154323ee00d3ab62b07158df4024283a67a53134a1fa2efa9841";
+    url = "http://git.kitenet.net/?p=git-annex.git;a=snapshot;sf=tgz;h=${version}";
+    sha256 = "7db662ac1869582dda7bfa7d6218a61a962219ea4c94c27153877fa02000be33";
     name = "git-annex-${version}.tar.gz";
   };
 
@@ -29,16 +30,18 @@ stdenv.mkDerivation {
     httpTypes IfElse json liftedBase MissingH monadControl mtl network
     networkInfo networkMulticast pcreLight QuickCheck SHA stm text time
     transformers transformersBase utf8String wai waiLogger warp yesod
-    yesodDefault yesodStatic testpack ];
+    yesodDefault yesodStatic testpack SafeSemaphore networkPprotocolXmpp
+    async dns DAV ];
 
   checkTarget = "test";
   doCheck = true;
 
-  # The 'add_url' test fails because it attempts to use the network.
   preConfigure = ''
     makeFlagsArray=( PREFIX=$out )
     sed -i -e 's|#!/usr/bin/perl|#!${perl}/bin/perl|' Build/mdwn2man
     sed -i -e 's|"cp |"${coreutils}/bin/cp |' -e 's|"rm -f |"${coreutils}/bin/rm -f |' test.hs
+    # Remove this patch after the next update!
+    sed -i -e '9i #define WITH_OLD_URI' Utility/Url.hs
   '';
 
   meta = {

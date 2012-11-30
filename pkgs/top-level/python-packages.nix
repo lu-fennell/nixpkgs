@@ -61,13 +61,13 @@ let pythonPackages = python.modules // rec {
 
 
   alot = buildPythonPackage rec {
-    rev = "5ed59825ffaeaacea90ea10be4b932c60428ed8e";
+    rev = "09804636609b4245cde4faceddffdb5361f3d390";
     name = "alot-0.3.3_${rev}";
 
     src = fetchurl {
       url = "https://github.com/pazz/alot/tarball/${rev}";
       name = "${name}.tar.bz";
-      sha256 = "1b724d47bf766ba3ca7cb6d27c7bb597dbc67dcae1347c5a0f01f80c2246ca07";
+      sha256 = "b5239c4dfcd9882608fb48ef80fe9ba9223949ab7e6a2c1abe970ac307ebcd4a";
     };
 
     doCheck = false;
@@ -542,11 +542,11 @@ let pythonPackages = python.modules // rec {
 
 
   django_1_3 = buildPythonPackage rec {
-    name = "Django-1.3.2";
+    name = "Django-1.3.3";
 
     src = fetchurl {
       url = "http://www.djangoproject.com/m/releases/1.3/${name}.tar.gz";
-      sha256 = "0r6pdm33x96aba9x36jvqpkh2bf1zixnzvr12mcc8qq8wc7hii3j";
+      sha256 = "0snlrcvk92qj1v0n9dpycn6sw56w4zns4mpc30837q6yi7ylrx4f";
     };
 
     doCheck = false;
@@ -576,11 +576,11 @@ let pythonPackages = python.modules // rec {
 
 
   djblets = buildPythonPackage rec {
-    name = "Djblets-0.6.19";
+    name = "Djblets-0.6.23";
 
     src = fetchurl {
       url = "http://downloads.reviewboard.org/releases/Djblets/0.6/${name}.tar.gz";
-      sha256 = "1hhvpi81yknvlaazq1cpgamp9vf3x1fcr0ba64q3j2yz1kgin1i8";
+      sha256 = "1d8vg5a9q2ldnbxqap1893lqb66jwcsli2brbjx7mcnqrzcz449x";
     };
 
     propagatedBuildInputs = [ pkgs.pil django_1_3 ];
@@ -705,11 +705,11 @@ let pythonPackages = python.modules // rec {
 
 
   flake8 = buildPythonPackage (rec {
-    name = "flake8-1.5";
+    name = "flake8-1.6.2";
 
     src = fetchurl {
       url = "http://pypi.python.org/packages/source/f/flake8/${name}.tar.gz";
-      md5 = "525be5c7fcaf85f6819c77752cb2ee72";
+      md5 = "abfdbb25d37c28e9da05f1b5c3596d1a";
     };
 
     doCheck = false;
@@ -926,11 +926,11 @@ let pythonPackages = python.modules // rec {
 
 
   httplib2 = buildPythonPackage rec {
-    name = "httplib2-0.7.6";
+    name = "httplib2-0.7.7";
 
     src = fetchurl {
       url = "http://httplib2.googlecode.com/files/${name}.tar.gz";
-      sha256 = "baa7bf431fa9d3c1016562de717e1ebb322a99df72a2918f6b5b8f65fa65bc2e";
+      sha256 = "2e2ce18092c32d1ec54f8a447e14e33585e30f240b883bfeeca65f12b3bcfaf6";
     };
 
     doCheck = false; # doesn't have a test
@@ -1999,7 +1999,7 @@ let pythonPackages = python.modules // rec {
     namePrefix = "";
 
     src = fetchurl {
-      url = "ftp://ftp.logilab.org/pub/pylint/${name}.tar.gz";
+      url = "http://download.logilab.org/pub/pylint/${name}.tar.gz";
       sha256 = "1mg1ywpj0klklv63s2hwn5xwxi3wfwgnyz9d4pz32hzb53azq835";
     };
 
@@ -2327,11 +2327,11 @@ let pythonPackages = python.modules // rec {
 
 
   reviewboard = buildPythonPackage rec {
-    name = "ReviewBoard-1.6.9";
+    name = "ReviewBoard-1.6.13";
 
     src = fetchurl {
       url = "http://downloads.reviewboard.org/releases/ReviewBoard/1.6/${name}.tar.gz";
-      sha256 = "06pwbmqwsb0g2y8zg5hk5ibaivsl1af7v0vnkqranimf4yaa10mc";
+      sha256 = "06q9vgvmmwiyqj6spw6sbhrcxwds02pvqir50psbpps74nxn2mph";
     };
 
     propagatedBuildInputs =
@@ -2774,11 +2774,11 @@ let pythonPackages = python.modules // rec {
   };
 
   turses = buildPythonPackage (rec {
-    name = "turses-0.2.8";
+    name = "turses-0.2.9";
 
     src = fetchurl {
       url = "http://pypi.python.org/packages/source/t/turses/${name}.tar.gz";
-      sha256 = "fbbc0ca93324535bcafa8434395caded8047e40c25d7a4004806415dd6ca023f";
+      sha256 = "c0f32fa31e2c5fa42f5cc19f3dba4e73f0438bf36bf756ba137f2423c0ac4637";
     };
 
     propagatedBuildInputs = [ oauth2 urwid tweepy ];
@@ -2794,11 +2794,11 @@ let pythonPackages = python.modules // rec {
   });
 
   tweepy = buildPythonPackage (rec {
-    name = "tweepy-1.11";
+    name = "tweepy-1.12";
 
     src = fetchurl {
       url = "http://pypi.python.org/packages/source/t/tweepy/${name}.tar.gz";
-      sha256 = "2b9fa225e9254e2cbbb01e59c6e92d9c42e5d41d97e8c74dee93eb09babffde5";
+      sha256 = "66d728527ab3d5f5e4d6725654783f99169172678105f609d14353f6626c1315";
     };
 
     doCheck = false;
@@ -2883,13 +2883,13 @@ let pythonPackages = python.modules // rec {
 
 
   urwid = buildPythonPackage (rec {
-    name = "urwid-1.0.2";
+    name = "urwid-1.1.1";
 
     doCheck = false;
 
     src = fetchurl {
       url = "http://excess.org/urwid/${name}.tar.gz";
-      md5 = "00542bbd15fae7ea60b02a7570edee2b";
+      md5 = "eca2e0413cf7216b01c84b99e0f2576d";
     };
 
     meta = {
