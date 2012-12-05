@@ -7499,6 +7499,8 @@ let
 
   panotools = callPackage ../applications/graphics/panotools { };
 
+  parcellite = callPackage ../applications/misc/parcellite { };
+
   pavucontrol = callPackage ../applications/audio/pavucontrol {
     inherit (gnome) libglademm;
   };
