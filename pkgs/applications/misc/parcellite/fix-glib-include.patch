@@ -1,0 +1,13 @@
+diff --git a/src/keybinder.h b/src/keybinder.h
+index 2318a56..83ac931 100644
+--- a/src/keybinder.h
++++ b/src/keybinder.h
+@@ -20,7 +20,7 @@
+ #ifndef __KEY_BINDER_H__
+ #define __KEY_BINDER_H__
+ 
+-#include <glib/gtypes.h>
++#include <glib.h>
+ 
+ G_BEGIN_DECLS
+ 
