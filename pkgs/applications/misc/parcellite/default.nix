@@ -9,4 +9,6 @@ stdenv.mkDerivation rec {
   };
  
   buildInputs = [ gtk pkgconfig gnome.intltool ];
+
+  patches = [ ./fix-glib-include.patch ];
 }
