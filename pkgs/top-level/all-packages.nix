@@ -439,6 +439,8 @@ let
 
   barcode = callPackage ../tools/graphics/barcode {};
 
+  bashmount = callPackage ../tools/filesystems/bashmount { };
+
   bc = callPackage ../tools/misc/bc { };
 
   bchunk = callPackage ../tools/cd-dvd/bchunk { };
