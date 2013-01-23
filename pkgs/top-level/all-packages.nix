@@ -8974,7 +8974,9 @@ let
   };
   */
 
+  /*
   nixProglang = callPackage ../tools/package-management/nix/proglang.nix { };
+  */
 
   nixCustomFun = src: preConfigure: enableScripts: configureFlags:
     import ../tools/package-management/nix/custom.nix {
