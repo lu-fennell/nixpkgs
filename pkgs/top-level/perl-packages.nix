@@ -814,10 +814,10 @@ rec {
   };
 
   CommonSense = buildPerlPackage rec {
-    name = "common-sense-3.4";
+    name = "common-sense-3.6";
     src = fetchurl {
       url = "mirror://cpan/authors/id/M/ML/MLEHMANN/${name}.tar.gz";
-      sha256 = "0s1lym5519gwdgwd6c6cq9c9iagr7bmb16jklq5iq3nsdyb0qc2l";
+      sha256 = "0nkbp1by0mpvg1x6053fbh9dl8nnswlyfmqp8k2lppd717hw5ql6";
     };
   };
 
